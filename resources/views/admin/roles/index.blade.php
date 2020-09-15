@@ -6,7 +6,6 @@
             @if(session()->has('role-delete'))
             <div class="alert alert-danger">
                 {{session('role-delete')}}
-                </div>
             </div>
             @endif
     </div>
@@ -31,8 +30,8 @@
                     <button class="btn btn-primary btn-block" type="submit">Create</button>
                 </form>
             </div>
-            <div class="col-sm-6">
-                <div class="card shadow m">
+            <div class="col-lg-12">
+                <div class="card shadow mb-4">
                     <div class="card-header py-3">
                       <h1 class="m-0 font-weight-bold text-primary">Roles</h1>
                     </div>
@@ -60,7 +59,7 @@
 
                             <tr>
                                 <th>{{$role->id}}</th>
-                                <th>{{$role->name}}</th>
+                            <th><a href="{{route('roles.edit', $role->id)}}">{{$role->name}}</a></th>
                                 <th>{{$role->slug}}</th>
                                 <th>
 
