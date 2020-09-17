@@ -30,6 +30,8 @@
                     <th>Id</th>
                         <th>Username</th>
                         <th>Title</th>
+                        <th>Category_id</th>
+                        <th>Category_name</th>
                         <th>Image</th>
                         <th>Body</th>
                         <th>createdAt</th>
@@ -41,6 +43,8 @@
                     <th>Id</th>
                         <th>Username</th>
                         <th>Title</th>
+                        <th>Category_id</th>
+                        <th>Category_name</th>
                         <th>Image</th>
                         <th>Body</th>
                         <th>createdAt</th>
@@ -54,6 +58,8 @@
                         <th>{{$post->id}}</th>
                         <th>{{$post->user->name}}</th>
                     <th><a href="{{route('post.edit', $post->id)}}">{{$post->title}}</a></th>
+                    <th>{{$post->category_id}}</th>
+                    <th>{{$post->category->name}}</th>
                         <th><div><img class="img-fluid" src="{{$post->post_image}}" alt="image-pic"></div></th>
                         <th>{{$post->body}}</th>
                         <th>{{$post->created_at->diffForHumans()}}</th>

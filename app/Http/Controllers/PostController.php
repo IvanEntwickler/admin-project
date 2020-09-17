@@ -20,7 +20,7 @@ class PostController extends Controller
     //////// CREATE + STORE
     public function create(){
         // $this->authorize('create', Post::class);
-        return view('admin.posts.create');
+        return view('admin.posts.create', ['posts'=>Post::all()]);
     }
     public function store(Request $request){
         // dd(request()->all());
@@ -29,6 +29,7 @@ class PostController extends Controller
         $inputs = request()->validate([
             'title'=> 'required | min:8 | max:255',
             'body'=>'required',
+            'category_id'=>'required',
             'post_image'=>'file',
         ]);
         /// if the user puts in an image file the inputs gets

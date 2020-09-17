@@ -23,6 +23,5 @@ Route::middleware('auth')->group(function(){
     /// INDEX
     Route::get('/admin', 'AdminsController@index')->name('admin.index');
 
-
 });
 
