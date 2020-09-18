@@ -55,6 +55,10 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapPermissionsRoutes();
 
         $this->mapCategoriesRoutes();
+
+        $this->mapCommentsRoutes();
+
+        $this->mapCommentsReplyRoutes();
         //
     }
 
@@ -125,5 +129,19 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('web', 'auth','role:admin')
             ->namespace($this->namespace)
             ->group(base_path('routes/web/categories.php'));
+    }
+    protected function mapCommentsRoutes()
+    {
+        Route::prefix('admin')
+            ->middleware('web', 'auth')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/comments.php'));
+    }
+    protected function mapCommentsReplyRoutes()
+    {
+        Route::prefix('admin')
+            ->middleware('web', 'auth')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web/comments-reply.php'));
     }
 }

@@ -58,7 +58,8 @@ class PostController extends Controller
     public function edit(Post $post){
         // editting only possible for the owner of the post
         // $this->authorize('view', $post);
-        return view('admin.posts.edit', ['post'=>$post]);
+        $posts = Post::all();
+        return view('admin.posts.edit', ['post'=>$post, 'posts'=>$posts]);
     }
 
     //////// UPDATE
@@ -66,6 +67,7 @@ class PostController extends Controller
 
         $updateInputs = request()->validate([
             'title'=> 'required | min:8 | max:255',
+            'category_id'=>'required',
             'body'=>'required',
             'post_image'=>'file',
         ]);
@@ -76,6 +78,7 @@ class PostController extends Controller
         }
         $post->title = $updateInputs['title'];
         $post->body = $updateInputs['body'];
+        $post->category_id = $updateInputs['category_id'];
         // update a post of $updateInputs for the authtenicated user
         // and save it for the authtenticated user
         // auth()->user()->posts()->save($post);

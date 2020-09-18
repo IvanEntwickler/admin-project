@@ -16,12 +16,13 @@ Route::post('/posts', 'PostController@store')->name('post.store');
 
 
 /// EDIT /// editing only possible for the owner
-Route::get('/posts/{post}/edit', 'PostController@edit')->middleware('can:view, post')->name('post.edit');
+Route::get('/posts/{post}/edit', 'PostController@edit')->name('post.edit');
 
 /// UPDATE
 Route::put('/posts/{post}/update', 'PostController@update')->name('post.update');
 
 /// DELETE
 Route::delete('/posts/{post}/destroy', 'PostController@destroy')->name('post.destroy');
+
 
 });
